@@ -1,6 +1,6 @@
 FROM node:24-alpine
 
-COPY package*.json ./
+COPY package.json /package.json
 
 RUN npm install --ignore-scripts
 

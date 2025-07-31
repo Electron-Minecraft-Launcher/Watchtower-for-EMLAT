@@ -1,11 +1,11 @@
-name: Release
+name: Release (dev)
 
 on:
   push:
     tags:
-      - 'v*.*.*-dev'
-      - 'v*.*.*-beta.*-dev'
-      - 'v*.*.*-alpha.*-dev'
+      - 'v[0-9]+.[0-9]+.[0-9]+-dev'
+      - 'v[0-9]+.[0-9]+.[0-9]+-beta.[0-9]+-dev'
+      - 'v[0-9]+.[0-9]+.[0-9]+-alpha.[0-9]+-dev'
 
 jobs:
   build:
