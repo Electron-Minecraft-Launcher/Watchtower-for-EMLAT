@@ -10,4 +10,6 @@ else
   echo "🔧 No .env file found at $ENV_FILE"
 fi
 
-exec "npm run start"
+ls
+
+exec npm run start

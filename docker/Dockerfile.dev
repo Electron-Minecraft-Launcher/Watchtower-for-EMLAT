@@ -1,10 +1,9 @@
 FROM node:24-alpine
 
 COPY package.json /package.json
+COPY server.dev.js /server.dev.js
 
 RUN npm install --ignore-scripts
-
-COPY . .
 
 COPY docker/entrypoint.dev.sh /entrypoint.dev.sh
 RUN chmod +x /entrypoint.dev.sh
