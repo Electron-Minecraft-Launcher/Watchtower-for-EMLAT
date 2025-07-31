@@ -1,0 +1,8 @@
+FROM alpine:3.22.1
+
+COPY --from=containrrr/watchtower:latest /watchtower /watchtower
+
+COPY docker/entrypoint.prod.sh /entrypoint.prod.sh
+RUN chmod +x /entrypoint.prod.sh
+
+ENTRYPOINT ["/entrypoint.prod.sh"]
