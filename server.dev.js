@@ -1,3 +1,12 @@
+/**
+ * Mock Watchtower HTTP API Server
+ * This server simulates the Watchtower HTTP API for testing purposes.
+ * It listens for update requests and validates the provided token.
+ *
+ * @license MIT — See the `LICENSE` file for more information
+ * @copyright Copyright (c) 2025, GoldFrite
+ */
+
 const express = require('express')
 
 const app = express()
