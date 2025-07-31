@@ -8,9 +8,9 @@ RUN npm install --ignore-scripts
 
 COPY . .
 
-EXPOSE 8080
-
 COPY docker/entrypoint.dev.sh /entrypoint.dev.sh
 RUN chmod +x /entrypoint.dev.sh
+
+EXPOSE 8080
 
 ENTRYPOINT ["/entrypoint.dev.sh"]
