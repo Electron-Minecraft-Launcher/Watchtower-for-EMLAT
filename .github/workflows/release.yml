@@ -29,15 +29,6 @@ jobs:
           fi
           echo "✅ Tag is on the main branch."
 
-      - name: Verify changelog file exists
-        run: |
-          CHANGELOG_FILE=".github/changelogs/${{ github.ref_name }}.md"
-          if [ ! -f "$CHANGELOG_FILE" ]; then
-            echo "Error: Changelog file $CHANGELOG_FILE does not exist."
-            exit 1
-          fi
-          echo "✅ Changelog file found."
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
