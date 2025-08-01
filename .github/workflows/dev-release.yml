@@ -43,9 +43,10 @@ jobs:
         id: version
         run: |
           RAW_TAG="${{ github.ref_name }}"
-          CLEAN_TAG="${RAW_TAG#v}"
+          STRIPPED_V="${RAW_TAG#v}"
+          CLEAN_TAG="${STRIPPED_V%-dev}"
           echo "clean_tag=$CLEAN_TAG" >> $GITHUB_OUTPUT
-          
+
           if [[ "$CLEAN_TAG" == *"-alpha."* ]]; then
             echo "release_type=alpha" >> $GITHUB_OUTPUT
           elif [[ "$CLEAN_TAG" == *"-beta."* ]]; then
