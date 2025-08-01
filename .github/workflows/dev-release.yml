@@ -39,11 +39,20 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       
+      - name: Extract version without "v"
+        id: version
+        run: |
+          RAW_TAG="${{ github.ref_name }}"
+          CLEAN_TAG="${RAW_TAG#v}" # supprime le v
+          echo "clean_tag=$CLEAN_TAG" >> $GITHUB_OUTPUT
+
       - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@v5
         with:
           images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=raw,value=${{ steps.version.outputs.clean_tag }}
 
       - name: Format owner name to lowercase
         run: echo "OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
