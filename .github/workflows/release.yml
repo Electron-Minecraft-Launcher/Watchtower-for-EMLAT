@@ -61,7 +61,7 @@ jobs:
           images: ghcr.io/${{ github.repository }}
           tags: |
             type=raw,value=${{ steps.version.outputs.clean_tag }}
-            ${{ steps.version.outputs.release_type == 'stable' && format('ghcr.io/{0}/watchtower-for-emlat:latest', env.OWNER_LC) || '' }}
+            ${{ steps.version.outputs.release_type == 'stable' && 'latest' || '' }}
       
       - name: Build and push Docker image
         id: build-and-push

@@ -62,7 +62,6 @@ jobs:
           images: ghcr.io/${{ github.repository }}
           tags: |
             type=raw,value=${{ steps.version.outputs.clean_tag }}
-            # type=raw,value=latest,enable=${{ !contains(github.ref, 'alpha') && !contains(github.ref, 'beta') }}
             ${{ steps.version.outputs.release_type == 'stable' && format('ghcr.io/{0}/watchtower-for-emlat-dev:latest', env.OWNER_LC) || '' }}
 
       - name: Format owner name to lowercase
